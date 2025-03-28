@@ -1,0 +1,15 @@
+Este projeto aborda a normalização de bancos de dados, sendo utilizado para demonstrar o processo de estruturação de dados em tabelas para eliminar redundâncias e dependências. O foco é mostrar como a normalização pode ser aplicada para otimizar o armazenamento e facilitar a manipulação dos dados.
+
+Funcionalidades
+
+Exemplo de banco de dados antes e depois da normalização.
+
+Demonstração de diferentes formas normais (1FN, 2FN, 3FN, etc.).
+
+Exemplos práticos de normalização de dados, como a separação de tabelas e eliminação de dados redundantes.
+
+Tecnologias Utilizadas
+
+Banco de dados MySQL
+
+este trabalho esta na licença mit
