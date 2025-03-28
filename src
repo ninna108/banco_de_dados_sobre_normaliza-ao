@@ -1,0 +1,196 @@
+create database normalizacao;
+use normalizacao;
+
+create table colegas (
+id_colega int auto_increment primary key,
+Nome varchar(100),
+Email varchar(100),
+DtNasc date,
+Turma varchar(50)
+);
+
+insert into colegas (id, Nome, Email, DtNasc, Turma) values
+(1, "joão",  "joao@gmail.com", "2009-03-15", "5A"),
+(2, "ana", "ana@gmail.com", "2008-05-10", "6B"),
+(3, "Lucas", "lucas@gmail.com", "2009-07-22", "5C"),
+(4, 	"maria", "maria@gmail.com", "2008-12-05", "6A"),
+(5,	"Pedro", "pedro@gmail.com", "2009-04-18", "5B"),
+(6,	"Carla", "carla@gmail.com", "2008-11-30", "6C"),
+(7,	"Ricardo", "ricardo@gmail.com", "2009-02-12", "5A"),
+(8,	"Beatriz", "beatriz@gmail.com", "2008-09-25", "6B"),
+(9,	"Tiago", "tiago@gmail.com", "2009-06-08", "5C"),
+(10,	"Fernanda", "fernanda@gmail.com", "2008-10-15", "6A"),
+(11, "Gustavo", "gustavo@gmail.com", "2009-01-07", "5B"),
+(12,	"Letícia", "leticia@gmail.com", "2008-08-03", "6c"),
+(13,	"Bruno", "bruno@gmail.com",	"2009-05-20", "5A"),
+(14, "Daniela", "daniela@gmail.com", "2008-07-11",  "6B"),
+(15,	"Rafael", "rafael@gmail.com", "2009-03-03",	"5C"),
+(16, "Mariana", "mariana@gmail.com", "2008-06-27", "6A"),
+(17, "André", "andre@gmail.com", "2009-08-14", "5B"),
+(18,	"Silvia", "silvia@gmail.com", "2008-04-05", "6C"),
+(19,	"Eduardo", "eduardo@gmail.com", "2009-09-09", "5A"),
+(20,	"Juliana", "juliana@gmail.com", "2008-03-19", "6B");
+
+create table enderecos (
+endereco varchar(300),
+id_colega int,
+foreign key (id_colega) references colegas (id_colega)
+);
+
+insert into enderecos(id, endereco) values
+(1, "Rua Flores, 123 – Jardim Rosas"),
+(2, "Av. Sol, 456 – Bairro Encantado"),
+(3, "Rua Árvores, 789 – Vila Verde"),
+(4, "Rua Lírios, 101 – Parque Aves"),
+(5, "Av. Central, 202 – Centro"),
+(6, "Rua Sol, 303 – Bairro Alegre"),
+(7, "Av. Estrelas, 404 – Cidade Nova"),
+(8, "Rua Orquídeas, 505 – Jardim Enc."),
+(9, "Av. Pássaros, 606 – Parque Verde"),
+(10, 	"Rua Horizonte, 707 – Vista Alegre"),
+(11, "Av. Primavera, 808 – Bairro Prim."),
+(12, "Rua Girassóis, 909 – Jardim Solar"),
+(13, "Av. Lua, 121 – Bairro Lunar"),
+(14, "Rua Pinheiros, 232 – Parque Árvores"),
+(15, "Av. Mar, 343 – Vila Marinha"),
+(16, "Rua Acácias, 454 – Jardim Flores"),
+(17, "Av. Coqueiros, 565 – Bairro Tropical"),
+(18, "Rua Palmeiras, 676 – Jardim Tropical"),
+(19, "Av. Girassóis, 787 – Centro"),
+(20, "Rua Jacarandás, 898 – Bairro Flores");
+
+create table telefones (
+telefone varchar(15) not null,
+id_colega int,
+foreign key (id_colega) references colegas (id_colega)
+);
+
+insert into telefones (id, telefone) values
+(1, "1234-5678,8765-4321"),
+(2," 2345-6789"),
+(3, "3456-7890,6543-2109"),
+(4, "9876-5432"),
+(5, "8765-4321,1122-3344"),
+(6, "4433-2211"),
+(7, "5566-7788"),
+(8, "6677-8899,9988-7766"),
+(9, "7788-9900"),
+(10, "8899-0011,2233-4455"),
+(11, "9900-1122"),
+(12, "1100-2233,3344-5566"),
+(13, "5566-7788"),
+(14, "6677-8899"),
+(15, "7788-9900,8899-0011"),
+(16, "9900-1122,2233-4455"),
+(17, "1122-3344,4433-2211"),
+(18, "3344-5566"),
+(19, "4455-6677,5566-7788"),
+(20, "6677-8899");
+
+create table hobbies (
+hobby text,
+id_colega int,
+foreign key (id_colega) references colegas (id_colega)
+);
+
+insert into hobbies (id, hobby) values
+(1, "Futeb, Desenhar"),
+(2, "Ler, Dançar"),
+(3, "Jogar, Pintar"),
+(4, "Cantar, Dançar"),
+(5, "Basq., Xadrez"),
+(6, "Natação, Pintar"),
+(7, "Futeb, Correr"),
+(8, "Desenhar, Ler"),
+(9, "Jogar, Basq."),
+(10, "Dançar, Ler"),
+(11, "Pintar, Desenhar"),
+(12, "Ler, Jogar"),
+(13, "Futeb, Basq."),
+(14, "Xadrez, Cantar"),
+(15, "Natação, Correr"),
+(15, "Dançar, Pintar"),
+(16, "Futeb, Basq."),
+(17, "Ler, Jogar"),
+(18, "Desenhar, Cantar"),
+(19, "Dançar, Xadrez");
+
+create table responsaveis (
+responsavel varchar(100) not null,
+id_colega int,
+foreign key (id_colega) references colegas (id_colega)
+);
+
+insert into responsaveis(id, responsavel) values 
+(1,  "Maria Silva"),
+(2,  "Carlos Souza"),
+(3,  "Ana Pereira"),
+(4,  "Roberto Lima"),
+(5,  "Juliana Costa"),
+(6,  "Fernando Alves"),
+(7,  "Carla Mendes"),
+(8,  "Marcos Silva"),
+(9,  "Juliana Mendes"),
+(10,  "Ricardo Costa"),
+(11,  "Amanda Lima"),
+(12,  "Marcelo Ribeiro"),
+(13,  "Sofia Almeida"),
+(14,  "Paulo Mendes"),
+(15,  "Fernanda Silva"),
+(16,  "Leonardo Costa"),
+(17,  "Carolina Souza"),
+(18,  "Eduardo Pereira"),
+(19,  "Camila Rocha"),
+(20,  "Bruno Martins");
+
+create table atividades (
+atividade text,
+id_colega int,
+foreign key (id_colega) references colegas (id_colega)
+);
+
+insert into atividades(id, atividade) values
+(1, "Futeb, Xadrez"),
+(2, "Dança, Coral"),
+(3, "Teatro, Basq."),
+(4, "Música, Ballet"),
+(5, "Basq., Robótica"),
+(6, "Natação, Dança"),
+(7, "Futeb, Atletismo"),
+(8, "Pintura, Coral"),
+(9, "Basq., Xadrez"),
+(10, "Dança, Teatro"),
+(11, "Pintura, Robótica"),
+(12, "Teatro, Dança"),
+(13, "Futeb, Xadrez"),
+(14, "Coral, Ballet"),
+(15, "Natação, Atletismo"),
+(16, "Dança, Teatro"),
+(17, "Futeb, Xadrez"),
+(18, "Leitura, Dança"),
+(19, "Teatro, Música"),
+(20, "Dança, Coral");
+
+insert into colegas (id, Nome, endereco, telefone, hobby, Email, DtNasc, Turma, responsavel, atividade) values
+(1,	"Joao", "Rua Flores, 123 – Jardim Rosas",	"1234-5678,8765-4321	", "Futeb, Desenhar", "joao@gmail.com",	"2009-03-15",	"5A", "Maria Silva", "Futeb, Xadrez"),
+(2, "ana",	"Av. Sol, 456 – Bairro Encantado",	"2345-6789",	"Ler, Dançar",	"ana@gmail.com",	"2008-05-10",	"6B",	"Carlos Souza",	"Dança, Coral"),
+(3,	"Lucas",	"Rua Árvores, 789 – Vila Verde",	"3456-7890,6543-2109",	"Jogar, Pintar",	"lucas@gmail.com",	"2009-07-22",	"5C", "Ana Pereira	Teatro, Basq."),
+(4, "maria",	"Rua Lírios, 101 – Parque Aves",	"9876-5432",	"Cantar, Dançar",	"maria@gmail.com",	"2008-12-05",	"6A",	"Roberto Lima",	"Música, Ballet"),
+(5,	"Pedro",	"Av. Central, 202 – Centro",	"8765-4321,1122-3344",	"Basq., Xadrez",	"pedro@gmail.com",	"2009-04-18",	"5B", "Juliana Costa",	"Basq., Robótica"),
+(6,	"Carla",	"Rua Sol, 303 – Bairro Alegre",	"4433-2211",	"Natação, Pintar",	"carla@gmail.com",	"2008-11-30",	"6C",	"Fernando Alves", "Natação, Dança"),
+(7,	"Ricardo",	"Av. Estrelas, 404 – Cidade Nova",	"5566-7788", "Futeb, Correr",	"ricardo@gmail.com",	"2009-02-12",	"5A",	"Carla Mendes",	"Futeb, Atletismo"),
+(8,	"Beatriz",	"Rua Orquídeas, 505 – Jardim Enc.",	"6677-8899,9988-7766",	"Desenhar, Ler",	"beatriz@gmail.com",	"2008-09-25",	"6B	", "Marcos Silva",	"Pintura, Coral"),
+(9,	"Tiago",	"Av. Pássaros, 606 – Parque Verde",	"7788-9900",	"Jogar, Basq.",	"tiago@gmail.com",	"2009-06-08",	"5C",	"Juliana Mendes",	"Basq., Xadrez"),
+(10,	"Fernanda",	"Rua Horizonte, 707 – Vista Alegre",	"8899-0011,2233-4455",	"Dançar, Ler",	"fernanda@gmail.com", "2008-10-15",	"6A",	"Ricardo Costa",	"Dança, Teatro"),
+(11,	"Gustavo",	"Av. Primavera, 808 – Bairro Prim.",	"9900-1122",	"Pintar, Desenhar",	"gustavo@gmail.com",	"2009-01-07",	"5B",	"Amanda Lima",	"Pintura, Robótica"),
+(12,	"Letícia",	"Rua Girassóis, 909 – Jardim Solar",	"1100-2233,3344-5566",	"Ler, Jogar",	"leticia@gmail.com",	"2008-08-03",	"6c",	"Marcelo Ribeiro",	"Teatro, Dança"),
+(13,	"Bruno",	"Av. Lua, 121 – Bairro Lunar",	"5566-7788",	"Futeb, Basq.",	"bruno@gmail.com",	"2009-05-20", "5A",	"Sofia Almeida",	"Futeb, Xadrez"),
+(14,	"Daniela",	"Rua Pinheiros, 232 – Parque Árvores",	"6677-8899",	"Xadrez, Cantar",	"daniela@gmail.com",	"2008-07-11",	"6B",	"Paulo Mendes",	"Coral, Ballet"),
+(15,	"Rafael",	"Av. Mar, 343 – Vila Marinha",	"7788-9900,8899-0011",	"Natação, Correr",	"rafael@gmail.com",	"2009-03-03",	"5C",	"Fernanda Silva",	"Natação, Atletismo"),
+(16, "Mariana",	"Rua Acácias, 454 – Jardim Flores",	"9900-1122,2233-4455",	"Dançar, Pintar",	"mariana@gmail.com",	"2008-06-27",	"6A",	"Leonardo Costa",	"Dança, Teatro"),
+(17, "André",	"Av. Coqueiros, 565 – Bairro Tropical",	"1122-3344,4433-2211",	"Futeb, Basq.", "andre@gmail.com",	"2009-08-14",	"5B",	"Carolina Souza",	"Futeb, Xadrez"),
+(18,	"Silvia",	"Rua Palmeiras, 676 – Jardim Tropical",	"3344-5566",	"Ler, Jogar",	"silvia@gmail.com",	"2008-04-05",	"6C",	"Eduardo Pereira",	"Leitura, Dança"),
+(19,	"Eduardo",	"Av. Girassóis, 787 – Centro",	"4455-6677,5566-7788",	"Desenhar, Cantar",	"eduardo@gmail.com",	"2009-09-09",	"5A", "Camila Rocha",	"Teatro, Música"),
+(20, "Juliana",	"Rua Jacarandás, 898 – Bairro Flores",	"6677-8899",	"Dançar, Xadrez",	"juliana@gmail.com", "2008-03-19",	"6B",	"Bruno Martins",	"Dança, Coral");
+
+
